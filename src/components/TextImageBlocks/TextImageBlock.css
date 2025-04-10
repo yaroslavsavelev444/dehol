@@ -1,0 +1,39 @@
+.ti-wrapper{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.ti-container { 
+    width: 80%;
+    flex-direction: row;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 50px;
+}
+.ti-container-reversed{
+    width: 80%;
+    flex-direction: row-reverse;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 50px;
+}
+.ti-text, .ti-image { 
+    flex: 1;
+}
+
+.ti-text{
+    text-align: left;
+}
+.ti-image{
+    border-radius: 0;
+}
+
+.ti-image img { 
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+}

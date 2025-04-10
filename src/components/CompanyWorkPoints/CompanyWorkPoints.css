@@ -1,0 +1,58 @@
+/* Основной контейнер */
+.work-points-container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 40px;
+    text-align: center;
+  }
+  
+  /* Заголовок секции */
+  .section-title {
+    font-size: 2.5rem;
+    font-weight: bold;
+    margin-bottom: 30px;
+    color: #333;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    opacity: 0.8;
+  }
+  
+  /* Список принципов */
+  .work-points-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+    justify-items: center;
+  }
+  
+  /* Каждый пункт */
+  .work-point {
+    display: flex;
+    align-items: center;
+    font-size: 1.2rem;
+    color: #444;
+    opacity: 0;
+    transition: opacity 0.5s ease;
+    transform: translateY(20px);
+  }
+  
+  /* Иконка перед текстом */
+  .work-point .icon {
+    font-size: 2rem;
+    margin-right: 15px;
+    color: #007BFF; /* Цвет иконок */
+  }
+  
+  /* Текст */
+  .work-point .text {
+    font-weight: 500;
+  }
+  
+  /* Анимация появления (работает через AOS) */
+  [data-aos="fade-up"] {
+    opacity: 1;
+    transform: translateY(0);
+  }

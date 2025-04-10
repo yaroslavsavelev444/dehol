@@ -1,0 +1,31 @@
+.slider-container {
+  width: 100%;
+  position: relative; /* Для правильного позиционирования */
+  height: 100vh; /* Сделаем слайдер на весь экран */
+  overflow: hidden; /* Убираем лишние элементы, которые выходят за пределы */
+}
+
+.slick-slide {
+  display: flex;
+  justify-content: center;
+  align-items: center; /* Центрируем картинку */
+  height: 100%; /* Устанавливаем высоту слайдов в 100% */
+}
+
+.slide img {
+  width: 100vw; /* Изображение на всю ширину экрана */
+  height: 500px; /* Изображение на всю высоту экрана */
+  object-fit: cover; /* Обеспечиваем корректное масштабирование */
+  border-radius: 0; /* Убираем скругления для изображений */
+}
+
+.hero-title {
+  position: absolute;
+  bottom: 20%;
+  left: 10%;
+  color: white; /* или black, смотря на фоне */
+  font-size: 40px;
+  z-index: 900;
+  text-align: center;
+  margin-top: 20px;
+}

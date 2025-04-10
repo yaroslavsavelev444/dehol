@@ -1,0 +1,11 @@
+.text-wrapper{
+    width: 100%;
+    justify-content: center;
+    align-items: center;
+    display: flex;
+
+}
+.text-container{
+    width: 70%;
+    text-align: center;
+}

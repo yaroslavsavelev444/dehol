@@ -1,0 +1,40 @@
+/* ImageGrid.css */
+.image-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 0; /* Без отступов */
+    width: 100%;
+  }
+  
+  .image-item {
+    position: relative;
+    width: 100%;
+    aspect-ratio: 1 / 1; /* Можно поменять на 3/2, 4/3, 16/9 и т.п. */
+    overflow: hidden;
+  }
+  
+  .image-item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+  }
+  
+  /* Overlay с title */
+  .overlay {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: rgba(0, 0, 0, 0.6);
+    color: white;
+    opacity: 0;
+    padding: 8px;
+    font-size: 14px;
+    transition: opacity 0.3s ease;
+    pointer-events: none;
+  }
+  
+  .image-item:hover .overlay {
+    opacity: 1;
+  }
