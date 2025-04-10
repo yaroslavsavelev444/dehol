@@ -5,6 +5,9 @@ import TextImageBlock from '../../components/TextImageBlocks/TextImageBlock'
 import MosaicGrid from '../../components/ImageGrid/MosaicGrid';
 import './About.css'
 import CompanyWorkPoints from '../../components/CompanyWorkPoints/CompanyWorkPoints';
+import ImageGallery from '../../components/ImageLightBoxGallery/ImageGallery';
+import WordCarousel from '../../components/WordCarousel/WordCarousel';
+import CitiesSlider from '../../components/WordCarousel/WordCarousel';
 export default function About() {
   
   const images = [
@@ -16,6 +19,51 @@ export default function About() {
     { src: "/public/img/cnc/6.jpg", title: "ipsum dolor sit amet", className: "size-1x1" },
   ];
 
+  const diplomas = [
+    { src: "/img-global/iso9001 - 0001.jpg", title: "ipsum dolor sit amet", className: "size-2x2" },
+    { src: "/img-global/iso9001 - 0002.jpg", title: "ipsum dolor sit amet", className: "size-2x2" },
+    { src: "/img-global/iso9001 - 0003.jpg", title: "ipsum dolor sit amet", className: "size-2x2" },
+    { src: "/img-global/iso9001 - 0004.jpg", title: "ipsum dolor sit amet", className: "size-2x2" },
+
+  ];
+
+  const slidesExam = [
+    {
+      city: 'Микрон',
+      country: 'ТОЧНОСТЬ РАЗМЕРОВ',
+      img: '/public/img/cnc/6.jpg'
+    },
+    {
+      city: 'Контур',
+      country: 'СООТВЕТСТВИЕ ЧЕРТЕЖУ',
+      img: '/img/cnc/6.jpg'
+    },
+    {
+      city: 'Шлиф',
+      country: 'ЧИСТОТА ОБРАБОТКИ',
+      img: '/img/cnc/6.jpg'
+    },
+    {
+      city: 'Тайминг',
+      country: 'ИЗГОТОВЛЕНИЕ В СРОК',
+      img: '/img/cnc/6.jpg'
+    },
+    {
+      city: 'Баланс',
+      country: 'СПРАВЕДЛИВЫЕ ЦЕННИКИ',
+      img: '/img/cnc/6.jpg'
+    },
+    {
+      city: 'Гарант',
+      country: 'ГАРАНТИЯ КАЧЕСТВА',
+      img: '/img/cnc/6.jpg'
+    }
+  ];
+
+
+  
+  
+
   return (
     <div className='container'>
       <PageHeader title="О нас" />
@@ -26,6 +74,10 @@ export default function About() {
       </div>
       <MosaicGrid images={images} />
       <CompanyWorkPoints />
+
+      <PageHeader title="Наши достижения" />
+      <ImageGallery images={diplomas} />
+      <CitiesSlider slides={slidesExam} />
       <PageHeader title="Мы на карте" />
       <YandexMap />
     </div>

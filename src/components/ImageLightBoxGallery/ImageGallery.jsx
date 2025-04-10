@@ -1,44 +1,30 @@
-import React, { useState } from "react";
-import Gallery from "react-photo-gallery";
-import Carousel, { Modal, ModalGateway } from "react-images";
-import "./ImageGallery.css"; // Стили для галереи
+import React from 'react';
+import { PhotoProvider, PhotoView } from 'react-photo-view';
+import 'react-photo-view/dist/react-photo-view.css';
 
-const images = [
-  { src: "/public/img/", width: 4, height: 3 },
-  { src: "/img-global/iso9001-0002.jpg", width: 4, height: 3 },
-  { src: "/img-global/iso9001-0003.jpg", width: 4, height: 3 },
-  // добавь свои изображения
-];
-
-const ImageGallery = () => {
-  const [currentImageIndex, setCurrentImageIndex] = useState(0);
-  const [isModalOpen, setIsModalOpen] = useState(false);
-
-  const openLightbox = (index) => {
-    setCurrentImageIndex(index);
-    setIsModalOpen(true);
-  };
-
+const ImageGallery = ({ images }) => {
   return (
-    <>
-      {/* Галерея изображений */}
-      <Gallery photos={images} onClick={(event, { index }) => openLightbox(index)} />
-
-      {/* Модальное окно с полноэкранным просмотром */}
-      <ModalGateway>
-        {isModalOpen && images.length > 0 ? (
-          <Modal onClose={() => setIsModalOpen(false)}>
-            <Carousel
-              currentIndex={currentImageIndex}
-              views={images.map((x) => ({
-                source: x.src,
-                caption: `Image ${x.src}`,
-              }))}
+    <PhotoProvider>
+      <div className="gallery">
+        {images.map((image, index) => (
+          <PhotoView key={index} src={image.src}>
+            <img
+              src={image.thumb || image.src} // Миниатюра или изображение по умолчанию
+              alt={`Image ${index + 1}`}
+              style={{
+                cursor: 'pointer',
+                margin: '10px',
+                width: '150px', // Размеры миниатюр
+                height: 'auto',
+                borderRadius: '8px',
+                transition: 'transform 0.2s ease-in-out',
+              }}
+              onClick={() => console.log(`Image ${index + 1} clicked`)} // Логирование кликов
             />
-          </Modal>
-        ) : null}
-      </ModalGateway>
-    </>
+          </PhotoView>
+        ))}
+      </div>
+    </PhotoProvider>
   );
 };
 
