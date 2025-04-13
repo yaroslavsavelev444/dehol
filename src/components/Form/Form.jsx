@@ -53,7 +53,7 @@ export default function Form({ onClose }) {
     setIsLoading(true);
 
     try {
-      await sendEmail(formRef.current);
+      await sendEmail(formRef.current, 'form');
       showToast({ text1: "Сообщение отправлено", type: "success" });
       onClose();
     } catch (error) {
