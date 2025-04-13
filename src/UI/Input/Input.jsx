@@ -6,64 +6,67 @@ const Input = ({
   mask,
   errorMessage,
   placeholder,
-  isPlaceholderAnimated = false, // Флаг для анимации placeholder
+  isPlaceholderAnimated = false,
   onChange,
+  className = "",
+  style = {},
   ...props
 }) => {
   const [animatedPlaceholder, setAnimatedPlaceholder] = useState("");
   const [placeholderIndex, setPlaceholderIndex] = useState(0);
 
-  // Анимация placeholder, если включен флаг
+  // Анимация placeholder
   useEffect(() => {
     if (isPlaceholderAnimated && placeholder) {
       const interval = setInterval(() => {
         setAnimatedPlaceholder(placeholder.slice(0, placeholderIndex));
         if (placeholderIndex + 1 > placeholder.length) {
-          setPlaceholderIndex(0); // Возвращаемся в начало
+          setPlaceholderIndex(0);
         } else {
           setPlaceholderIndex(placeholderIndex + 1);
         }
-      }, 150); // Печатаем по одному символу каждые 150 мс
+      }, 150);
 
       return () => clearInterval(interval);
     } else {
-      // Если анимация не включена, просто показываем полный placeholder
       setAnimatedPlaceholder(placeholder);
     }
   }, [placeholder, placeholderIndex, isPlaceholderAnimated]);
 
-
-  // Функция для удаления букв
   const handleInputChange = (e) => {
-    const { value } = e.target;
-    // Удаление всего, что не является цифрой
-    const numericValue = value.replace(/[^\d]/g, '');
     if (onChange) {
-      onChange(e, numericValue); // Передаем измененное значение в onChange
+      onChange(e, e.target.value); // не numericValue!
     }
+  };
+
+  const commonProps = {
+    className: `custom-input ${className}`.trim(), // объединение классов
+    style,
+    type: "text",
+    placeholder: animatedPlaceholder,
   };
 
   const renderInput = () => {
     if (mask) {
       return (
         <InputMask {...props} mask={mask} onChange={handleInputChange}>
-          {(inputProps) => (
-            <input
-              {...inputProps}
-              type={"text"} // Управление типом поля
-              placeholder={animatedPlaceholder}
-            />
-          )}
-        </InputMask>
+  {(inputProps) => (
+    <input
+      {...inputProps}
+      {...commonProps}
+      value={props.value} // <-- добавь!
+    />
+  )}
+</InputMask>
       );
     } else {
       return (
         <input
-          {...props}
-          type={"text"} // Управление типом поля
-          placeholder={animatedPlaceholder}
-          onChange={handleInputChange} // Обработчик для удаления букв
-        />
+        {...props}
+        {...commonProps}
+        value={props.value} // важно!
+        onChange={handleInputChange}
+      />
       );
     }
   };
@@ -71,7 +74,6 @@ const Input = ({
   return (
     <div className="input-wrapper">
       {renderInput()}
-
       {errorMessage && <span className="error-message">{errorMessage}</span>}
     </div>
   );

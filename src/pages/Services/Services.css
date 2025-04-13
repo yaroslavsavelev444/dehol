@@ -1,0 +1,8 @@
+.services-grid {
+    padding: 0 5%;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); /* 4 в строку при широкой ширине */
+    gap: 2rem;
+    margin-top: 3rem;
+  }
+  

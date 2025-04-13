@@ -3,6 +3,7 @@ import { NavLink } from "react-router-dom";
 import "./NavBar.css";
 import { Menu } from "lucide-react";
 import Button from "../../UI/Buttons/Button";
+import Input from "../../UI/Input/Input";
 
 const NavBar = () => {
   const [menuOpen, setMenuOpen] = useState(false);
@@ -32,6 +33,18 @@ const NavBar = () => {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
+  useEffect(() => {
+    if (menuOpen) {
+      document.body.style.overflow = "hidden"; // Блокируем прокрутку
+    } else {
+      document.body.style.overflow = "auto"; // Возвращаем прокрутку
+    }
+  
+    return () => {
+      document.body.style.overflow = "auto"; // На случай размонтирования компонента
+    };
+  }, [menuOpen]);
+  
   return (
     <div
       className={`headers-wrapper ${showHeader ? "visible" : "hidden"} ${
@@ -41,26 +54,23 @@ const NavBar = () => {
       <div className="null-menu">
         <div className="menu-container">
           <Menu onClick={toggleMenu} size={60} />
-          <div className="menu-logo">
-            <img src="/img/dohol-logo.png" alt="logo" className="menu-logo-img" />
-          </div>
 
           {!isAtTop && (
             <div className="contact-info-container">
               <div className="contact-info">
-                <a href="tel:+79991234567" className="contact-item">📞 +7 (999) 123-45-67</a>
+                <a href="tel:+79991234567" className="contact-item"> +7 (999) 123-45-67</a>
                 <a
                   href="https://yandex.ru/maps/?text=Москва%2C%20ул.%20Примерная%2C%201"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="contact-item"
                 >
-                  📍 Москва, ул. Примерная, 1
+                  Рязань, ул. Шабулина, 9
                 </a>
                 </div>
                 <div className="contact-info">
-                <a href="mailto:optimazavod@yandex.ru" className="contact-item">✉️ optimazavod@yandex.ru</a>
-                <span className="contact-item">🕒 Пн–Пт: 9:00–18:00</span>
+                <a href="mailto:optimazavod@yandex.ru" className="contact-item">optimazavod@yandex.ru</a>
+                <span className="contact-item">Пн–Пт: 9:00–18:00</span>
               </div>
             </div>
           )}
@@ -75,7 +85,6 @@ const NavBar = () => {
         </div>
       </div>
 
-      {/* Overlay */}
       {menuOpen && (
         <div className="nav-overlay">
           <button className="close-btn" onClick={closeMenu}>✕</button>
@@ -94,6 +103,8 @@ const NavBar = () => {
                 <label htmlFor="email" className="overlay-nav-label" >Email : 
                   <p id="email" className="overlay-nav-label-item"> optimazavod@yandex.ru</p>
                 </label>
+                <Input mask="+7 (999) 999-99-99" placeholder="Заказать обратный звонок" label="phone"  className="overlay-nav-input"    style={{ fontSize: "15px",backgroundColor: "white" ,borderRadius: "0" ,padding: "5%" ,color: "black"  }} />
+                <Button className="overlay-nav-button">Отправить</Button>
             </nav>
           </div>
         </div>
