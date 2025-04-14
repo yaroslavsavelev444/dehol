@@ -4,7 +4,7 @@ import { ServiceCard } from './ServiceCard';
 import AOS from 'aos';
 import 'aos/dist/aos.css';
 
-export const ServicesGrid = ({ services }) => {
+export default function ServicesGrid ({ services }) {
   useEffect(() => {
     AOS.init({ duration: 800, once: true }); // once: true — чтобы анимация была один раз
   }, []);
