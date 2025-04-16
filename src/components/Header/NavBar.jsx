@@ -111,7 +111,6 @@ const NavBar = () => {
             <div className="contact-info-container">
               <div className="contact-info">
                 <a href="tel:+79991234567" className="contact-item">
-                  {" "}
                   +7 (999) 123-45-67
                 </a>
                 <a

@@ -87,3 +87,90 @@ footer p {
   opacity: 1;
   transform: translateY(0);
 }
+/* ...твой основной стиль выше остаётся без изменений */
+
+/* ===== Адаптив ===== */
+@media (max-width: 1024px) {
+  .footer {
+    padding-top: 120px;
+    padding-bottom: 40px;
+  }
+
+  .footer-menu a {
+    margin: 0 8px;
+    font-size: 15px;
+  }
+
+  .socials {
+    gap: 16px;
+    font-size: 22px;
+  }
+}
+
+@media (max-width: 768px) {
+  .footer {
+    padding-top: 100px;
+    padding-bottom: 30px;
+  }
+
+  .footer-menu {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 10px;
+    margin-bottom: 15px;
+  }
+
+  .footer-menu a {
+    font-size: 14px;
+    margin: 5px;
+  }
+
+  .socials {
+    font-size: 20px;
+    gap: 14px;
+    margin-bottom: 16px;
+  }
+
+  footer p {
+    font-size: 13px;
+  }
+
+  .wave {
+    height: auto;
+  }
+}
+
+@media (max-width: 480px) {
+  .footer {
+    padding-top: 80px;
+    padding-bottom: 25px;
+  }
+
+  .footer-menu a {
+    font-size: 13px;
+    margin: 4px;
+  }
+
+  .socials {
+    font-size: 18px;
+    gap: 12px;
+  }
+
+  footer p {
+    font-size: 12px;
+    padding: 0 10px;
+  }
+
+  .wave1 {
+    top: 0;
+  }
+
+  .wave2 {
+    top: 5px;
+  }
+
+  .wave3 {
+    top: 10px;
+  }
+}

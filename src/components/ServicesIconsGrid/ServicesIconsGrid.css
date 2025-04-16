@@ -1,3 +1,11 @@
+
+
+/* небольшие UX правки */
+.service-icon-item {
+  padding: 5px;
+  border-radius: 10px;
+  transition: background-color 0.3s ease;
+}
 .services-container-wrapper{
   margin:  5% 0 ;
   background-color: black;
@@ -116,4 +124,49 @@
 
 .details-link:hover {
   text-decoration: underline;
+}
+
+/* mobile-first: перестраиваем layout */
+@media (max-width: 768px) {
+  .services-container {
+    flex-direction: column;
+    width: 90%;
+    padding: 20px;
+  }
+
+  .icons-column {
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    padding-top: 20px;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    gap: 10px;
+    width: 100%;
+  }
+
+  .service-icon-item {
+    max-width: 70px;
+  }
+
+  .icon-wrapper {
+    width: 50px;
+    height: 50px;
+  }
+
+  .icon-img {
+    max-width: 30px;
+    max-height: 30px;
+  }
+
+  .text {
+    font-size: 10px;
+  }
+
+  .details-panel {
+    order: -1; /* панель сверху */
+    padding: 0;
+  }
+  .fade-text{
+    font-size: 15px;
+  }
 }

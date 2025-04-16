@@ -17,8 +17,9 @@ body {
   margin: 0;
   display: flex;
   place-items: center;
-  min-width: 320px;
+  min-width: 100%;
   min-height: 100vh;
+  font-size: 16px;
 }
 a {
   font-weight: 500;
@@ -31,7 +32,7 @@ a:hover {
 
 
 h1 {
-  font-size: 3.2em;
+  font-size: 3rem;
   line-height: 1.1;
 }
 
@@ -53,9 +54,32 @@ h1 {
   button {
     background-color: #f9f9f9;
   }
+  
 }
 
 .container{
   min-height: 90vh;
   padding-top: 10%;
+}
+
+
+@media (max-width: 575px) {
+
+}
+
+
+@media (max-width: 768px) {
+  .container{
+    padding-top: 20%;
+  }
+}
+
+
+@media (max-width: 992px) {
+
+}
+
+
+@media (max-width: 1200px) {
+
 }

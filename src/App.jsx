@@ -15,7 +15,7 @@ const About = lazy(() => import("./pages/About/About"));
 const Services = lazy(() => import("./pages/Services/Services"));
 const Production = lazy(() => import("./pages/Production/Production"));
 const Contacts = lazy(() => import("./pages/Contacts/Contacts"));
-
+const NotFound = lazy(() => import("./pages/NotFound/NotFound"));
 function App() {
   const [isScrollTopVisible, setIsScrollTopVisible] = useState(true);
   return (
@@ -30,6 +30,7 @@ function App() {
             <Route path="/services" element={<Services />} />
             <Route path="/production" element={<Production />} />
             <Route path="/contacts" element={<Contacts />} />
+            <Route path="*" element={<NotFound />} /> {/* этот маршрут обязательно в конце */}
           </Routes>
           </Suspense>
           </ErrorBoundary>

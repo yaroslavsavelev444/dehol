@@ -37,3 +37,73 @@
     height: auto;
     object-fit: cover;
 }
+@media (max-width: 1200px) {
+    .ti-container,
+    .ti-container-reversed {
+      width: 100%;
+      gap: 40px;
+      padding: 0 20px;
+    }
+  }
+  
+  /* 🔵 Large (1024px и меньше) */
+  @media (max-width: 1024px) {
+    .ti-container,
+    .ti-container-reversed {
+      gap: 30px;
+    }
+  
+    .ti-text h2 {
+      font-size: 26px;
+    }
+  
+    .ti-text h4 {
+      font-size: 18px;
+    }
+  }
+  
+  /* 🟡 Medium (768px и меньше) — планшеты */
+  @media (max-width: 768px) {
+    .ti-container,
+    .ti-container-reversed {
+      flex-direction: column;
+      gap: 30px;
+      text-align: center;
+    }
+  
+    .ti-text {
+      text-align: center;
+    }
+  
+    .ti-text h2 {
+      font-size: 24px;
+    }
+  
+    .ti-text h4 {
+      font-size: 16px;
+    }
+  
+    .ti-text p {
+      font-size: 14px;
+    }
+  }
+  
+  /* 🔴 Small (480px и меньше) — телефоны */
+  @media (max-width: 480px) {
+    .ti-text h2 {
+      font-size: 20px;
+    }
+  
+    .ti-text h4 {
+      font-size: 14px;
+    }
+  
+    .ti-text p {
+      font-size: 13px;
+    }
+  
+    .ti-container,
+    .ti-container-reversed {
+      gap: 20px;
+    }
+  }
