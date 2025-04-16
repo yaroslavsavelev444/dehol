@@ -1,29 +1,32 @@
-import React from "react";
-import SliderComponent from "../../components/Slider/SliderComponent";
+import React, { lazy } from "react";
 import "./Home.css";
 import Slide1 from "../../components/Slides/Slide1";
 
-export default function Home() {
+const SliderComponent = lazy(() =>
+  import("../../components/Slider/SliderComponent")
+);
+const About = lazy(() => import("../About/About"));
+const Services = lazy(() => import("../Services/Services"));
+const Production = lazy(() => import("../Production/Production"));
+const Contacts = lazy(() => import("../Contacts/Contacts"));
 
+export default function Home({sectionsRef}) {
   const slides = [<Slide1 />, <Slide1 />];
-
-
-             
   return (
     <div>
       <SliderComponent slides={slides} />
-      <div className="text-wrapper">
-        <div className="text-container">
-        <h2>Lorem ipsum dolor sit amet.</h2>
-        <p>
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Cum quidem,
-          neque minima atque quod temporibus. Odio nihil error cum sunt aperiam
-          cupiditate sed saepe modi iste ad quo quod vitae temporibus fugit in
-          placeat, iure assumenda amet maiores delectus! Incidunt officiis modi
-          alias facere accusamus saepe cum voluptatem sint excepturi.
-        </p>
-        </div>
-      </div>
+      <section ref={sectionsRef.about}>
+        <About />
+      </section>
+      <section ref={sectionsRef.services}>
+        <Services />
+      </section>
+      <section ref={sectionsRef.production}>
+        <Production />
+      </section>
+      <section ref={sectionsRef.contacts}>
+        <Contacts />
+      </section>
     </div>
   );
 }

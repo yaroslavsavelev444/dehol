@@ -7,7 +7,7 @@ import Input from "../../UI/Input/Input";
 import { useToast } from "../Providers/ToastProvider";
 import { sendEmail } from "../../ultils/emailSend";
 
-const NavBar = () => {
+const NavBar = ({sectionsRef}) => {
   const [menuOpen, setMenuOpen] = useState(false);
   const [showHeader, setShowHeader] = useState(true);
   const [isAtTop, setIsAtTop] = useState(true);
@@ -97,6 +97,15 @@ const NavBar = () => {
       setIsLoading(false);
     }
   };
+
+  const handleScrollTo = (section) => {
+    if (sectionsRef[section]?.current) {
+      sectionsRef[section].current.scrollIntoView({ behavior: "smooth" });
+      closeMenu();
+    }
+  };
+
+
   return (
     <div
       className={`headers-wrapper ${showHeader ? "visible" : "hidden"} ${
@@ -151,45 +160,31 @@ const NavBar = () => {
               <NavLink
                 to="/"
                 onClick={closeMenu}
-                className={({ isActive }) =>
-                  isActive ? "nav-link active" : "nav-link"
-                }
+                className={ "nav-link"}
               >
                 Главная
               </NavLink>
               <NavLink
-                to="/about"
-                onClick={closeMenu}
-                className={({ isActive }) =>
-                  isActive ? "nav-link active" : "nav-link"
-                }
+                onClick={() => handleScrollTo("about")}
+                className={ "nav-link"}
               >
                 О компании
               </NavLink>
               <NavLink
-                to="/services"
-                onClick={closeMenu}
-                className={({ isActive }) =>
-                  isActive ? "nav-link active" : "nav-link"
-                }
+                onClick={() => handleScrollTo("services")}
+                className={ "nav-link"}
               >
                 Услуги
               </NavLink>
               <NavLink
-                to="/production"
-                onClick={closeMenu}
-                className={({ isActive }) =>
-                  isActive ? "nav-link active" : "nav-link"
-                }
+                onClick={() => handleScrollTo("production")}
+                className={ "nav-link"}
               >
                 Производство
               </NavLink>
               <NavLink
-                to="/contacts"
-                onClick={closeMenu}
-                className={({ isActive }) =>
-                  isActive ? "nav-link active" : "nav-link"
-                }
+                onClick={() => handleScrollTo("contacts")}
+                className={ "nav-link"}
               >
                 Контакты
               </NavLink>

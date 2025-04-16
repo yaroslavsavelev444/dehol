@@ -175,12 +175,6 @@
   transition: color 0.3s ease;
 }
 
-/* активная ссылка (текущая страница) */
-.nav-link.active {
-  color:  #005b7c;
-  font-weight: bold;
-}
-
 /* Прозрачность при верхней позиции */
 .headers-wrapper.transparent {
   background-color: transparent;
