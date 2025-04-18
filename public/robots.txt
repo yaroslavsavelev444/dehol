@@ -1,0 +1,10 @@
+User-agent: *
+Allow: /
+
+# Исключаем технические директории
+Disallow: /src/
+Disallow: /node_modules/
+Disallow: /vite/
+
+# Путь к sitemap
+Sitemap: https://npo-konstruktor.ru/sitemap.xml

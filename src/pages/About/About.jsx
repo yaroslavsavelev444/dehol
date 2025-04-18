@@ -19,8 +19,6 @@ const LazyImageGallery = lazy(() =>
 const LazyCitiesSlider = lazy(() =>
   import("../../components/WordCarousel/WordCarousel")
 );
-const LazyYandexMap = lazy(() => import("../../components/YMap/YMap"));
-
 export default function About() {
   return (
     <div className="container">
@@ -81,13 +79,6 @@ export default function About() {
         </LazyLoadComponent>
       </div>
 
-      <div className="page-header-wrapper">
-        <PageHeader title="Мы на карте" />
-      </div>
-
-      <LazyLoadComponent skeletonVariant="fullwidth">
-        <LazyYandexMap />
-      </LazyLoadComponent>
     </div>
   );
 }
