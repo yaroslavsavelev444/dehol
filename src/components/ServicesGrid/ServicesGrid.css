@@ -1,3 +1,47 @@
+.card-scroll-horizontal-section {
+  height: 300vh;
+  position: relative;
+}
+
+.horizontal-scroll-inner {
+  position: sticky;
+  top: 0;
+  height: 100vh;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  perspective: 1200px;
+}
+
+.scroll-card-horizontal {
+  position: absolute;
+  width: 90%;
+  max-width: 600px;
+  pointer-events: none;
+  transition: transform 0.5s ease, opacity 0.5s ease;
+  will-change: transform, opacity;
+}
+
+.card-scroll-section {
+  position: relative;
+  height: 300vh; /* 100vh на каждую карточку */
+}
+
+.card-scroll-inner {
+  position: sticky;
+  top: 0;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.scroll-card {
+  width: 100%;
+  max-width: 800px;
+  margin: auto;
+}
 .service-card-container {
 height: 100%;
 }
@@ -9,6 +53,7 @@ height: 100%;
     display: flex;
     flex-direction: column;
     gap: 1.2rem;
+    background-color: black;
     transition: transform 0.3s ease, box-shadow 0.3s ease;
   }
   
@@ -18,16 +63,45 @@ height: 100%;
   }
   
   .service-title {
-    color: white;
-    font-size: 1.5rem;
-    font-weight: bold;
-    text-transform: uppercase;
-  }
-  
-  .service-description {
-    font-size: 1rem;
-    color: #ffffff;
-  }
+  color: white;
+  font-size: 1.5rem;
+  font-weight: bold;
+  text-transform: uppercase;
+
+  display: -webkit-box;
+  -webkit-line-clamp: 2;     /* Ограничиваем до 2 строк */
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  line-height: 1.4rem;        /* Задаём точную высоту строки */
+  min-height: calc(1.4rem * 2); /* Ровно на 2 строки */
+}
+
+.service-description {
+  font-size: 1rem;
+  color: #ffffff;
+
+  display: -webkit-box;
+  -webkit-line-clamp: 2;     /* Ограничиваем до 2 строк */
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  line-height: 1.4rem;
+  min-height: calc(1.4rem * 2); /* Ровно на 2 строки */
+}
+
+.service-note {
+  font-size: 0.9rem;
+  color: #ffffff;
+
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  line-height: 1.3rem;
+  min-height: calc(1.3rem * 2);
+}
   
   .service-list {
     list-style: none;
@@ -49,11 +123,6 @@ height: 100%;
     display: inline-block;
   }
   
-  .service-note {
-    font-size: 0.9rem;
-    color: #ffffff;
-    margin-top: 1rem;
-  }
   
   .service-button {
     margin-top: auto;

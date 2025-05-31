@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { PhotoProvider, PhotoView } from "react-photo-view";
 import "react-photo-view/dist/react-photo-view.css";
-import "aos/dist/aos.css"; // импорт стилей AOS
+import "aos/dist/aos.css"; 
 import AOS from "aos";
 import "./UniformGrid.css";
 import imageCompression from "browser-image-compression";
@@ -17,12 +17,19 @@ const UniformGrid = ({ images }) => {
         const compressed = await Promise.all(
           images.map(async (image) => {
             const options = {
-              maxSizeMB: 0.5,           // Максимальный размер файла 0.5MB
-              maxWidthOrHeight: 800,    // Максимальная ширина/высота
-              useWebWorker: true,       // Асинхронная обработка
+              maxSizeMB: 0.5,
+              maxWidthOrHeight: 800,
+              useWebWorker: true,
             };
-            const compressedFile = await imageCompression(image.src, options);
+
+            // Загрузка исходного изображения
+            const response = await fetch(image.src);
+            const blob = await response.blob();
+
+            // Сжатие
+            const compressedFile = await imageCompression(blob, options);
             const compressedUrl = URL.createObjectURL(compressedFile);
+
             return { ...image, compressedSrc: compressedUrl };
           })
         );
@@ -53,7 +60,7 @@ const UniformGrid = ({ images }) => {
               <img
                 srcSet={`${compressedSrc} 800w, ${src} 1200w`} // Адаптивное изображение
                 sizes="(max-width: 600px) 100vw, (max-width: 1024px) 50vw, 800px"
-                src={compressedSrc}  // Сжатое изображение для миниатюры
+                src={compressedSrc} // Сжатое изображение для миниатюры
                 alt={title}
                 loading="lazy"
               />

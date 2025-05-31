@@ -71,7 +71,7 @@
       title: 'Фрезерная обработка',
       description: 'Комплексные токарно-фрезерные работы под ключ.',
       items: [
-        'металлические и пластиковые изделия',
+        'металлические изделия',
         'обработка по 3–5 осям',
         'поддержка 3D моделей'
       ]
@@ -84,19 +84,15 @@
         'работа с твёрдыми сплавами',
         'индивидуальные решения'
       ],
-      note: 'включая нестандартные задачи'
     }
   ];
 
   export const imagesProduction = [
-    { src: "/public/img/works/IMG_1668.jpeg", title: "ipsum dolor sit amet", className: "size-2x2" },
-    { src: "/public/img/works/IMG_1670.jpeg", title: "ipsum dolor sit amet", className: "size-2x1" },
-    { src: "/public/img/works/IMG_1671.jpeg", title: "ipsum dolor sit amet", className: "size-1x2" },
-    { src: "/public/img/works/IMG_16722.jpg", title: "ipsum dolor sit amet", className: "size-1x1" },
-    { src: "/public/img/works/IMG_1673.jpeg", title: "ipsum dolor sit amet", className: "size-2x1" },
-    { src: "/public/img/works/IMG_1674.jpeg", title: "ipsum dolor sit amet", className: "size-1x1" },
-    { src: "/public/img/works/IMG_1675.jpeg", title: "ipsum dolor sit amet", className: "size-1x1" },
-    { src: "/public/img/works/IMG_1676.jpeg", title: "ipsum dolor sit amet", className: "size-1x1" },
-    { src: "/public/img/works/IMG_1677.jpeg", title: "ipsum dolor sit amet", className: "size-1x1" },
-    { src: "/public/img/works/IMG_1678.jpeg", title: "ipsum dolor sit amet", className: "size-1x1" },
+    { src: "/public/img/examples/1.jpg", title: "ipsum dolor sit amet", className: "size-2x2" },
+    { src: "/public/img/examples/3.jpg", title: "ipsum dolor sit amet", className: "size-1x2" },
+    { src: "/public/img/examples/9.jpg", title: "ipsum dolor sit amet", className: "size-1x1" },
+    { src: "/public/img/examples/5.jpg", title: "ipsum dolor sit amet", className: "size-2x1" },
+    { src: "/public/img/examples/6.jpg", title: "ipsum dolor sit amet", className: "size-1x1" },
+
+
   ];

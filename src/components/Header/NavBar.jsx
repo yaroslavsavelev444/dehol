@@ -139,14 +139,6 @@ const NavBar = ({sectionsRef}) => {
               </div>
             </div>
           )}
-
-          <div className="menu-buttons">
-            {!isAtTop && (
-              <>
-                <Button>Заказать расчёт</Button>
-              </>
-            )}
-          </div>
         </div>
       </div>
 

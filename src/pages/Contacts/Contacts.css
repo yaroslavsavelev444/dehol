@@ -1,4 +1,5 @@
 .dual-non-equals-wrapper{
+    width: 70%;
     padding: 2%;
     display: flex;
     flex-direction: row;
@@ -12,4 +13,12 @@
 .right-side { 
     flex: .7;
     text-align: left;
+}
+
+@media (max-width: 768px) {
+    .dual-non-equals-wrapper{
+        flex-direction: column;
+        width: 90%;
+    }
+    
 }

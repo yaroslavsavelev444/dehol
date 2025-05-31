@@ -21,7 +21,6 @@ export const ServiceCard = ({ title, description, items, note, buttonText = "Ð£Ð
         ))}
       </ul>
 
-      {note && <p className="service-note">*{note}</p>}
 
       <button className="service-button" onClick={onClick}>
         {buttonText}

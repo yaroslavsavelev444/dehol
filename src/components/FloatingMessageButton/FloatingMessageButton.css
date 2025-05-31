@@ -109,3 +109,13 @@
   body {
     overflow-x: hidden;
   }
+
+
+@media screen and (max-width: 768px) {
+   .floating-form {
+    left: 50%;
+    right: auto;
+    transform: translateX(-50%);
+  }
+    
+  }

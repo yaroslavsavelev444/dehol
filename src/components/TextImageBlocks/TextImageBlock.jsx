@@ -6,7 +6,15 @@ import 'aos/dist/aos.css';
 import "./TextImageBlock.css";
 import imageCompression from 'browser-image-compression';
 
-export default function TextImageBlock({ reversed, title, subtitle, text, image }) {
+export default function TextImageBlock({
+  reversed,
+  title,
+  subtitle,
+  text,
+  image,
+  imageWidth,
+  imageHeight
+}) {
   const [compressedImage, setCompressedImage] = useState(image);
 
   useEffect(() => {
@@ -20,15 +28,14 @@ export default function TextImageBlock({ reversed, title, subtitle, text, image 
       AOS.refresh();
     }, 100);
 
-    // Функция для сжатия изображения
     const compressImage = async () => {
       try {
         const options = {
-          maxSizeMB: 1,           // Максимальный размер файла (в МБ)
-          maxWidthOrHeight: 800,  // Максимальная ширина/высота изображения
-          useWebWorker: true,     // Использование Web Worker для асинхронной работы
+          maxSizeMB: 1,
+          maxWidthOrHeight: 800,
+          useWebWorker: true,
         };
-        
+
         const compressedFile = await imageCompression(image, options);
         const compressedUrl = URL.createObjectURL(compressedFile);
         setCompressedImage(compressedUrl);
@@ -47,11 +54,19 @@ export default function TextImageBlock({ reversed, title, subtitle, text, image 
           <div className="ti-text">
             <h2>{title || ""}</h2>
             <h4>{subtitle || ""}</h4>
-            <p>{text || "Текст"}</p>
+            <p>{text || ""}</p>
           </div>
           <div className="ti-image">
             <PhotoView src={compressedImage}>
-              <img src={compressedImage} alt="cnc" loading="lazy" />
+              <img
+                src={compressedImage}
+                alt="cnc"
+                loading="lazy"
+                style={{
+                  width: imageWidth || '100%',
+                  height: imageHeight || 'auto',
+                }}
+              />
             </PhotoView>
           </div>
         </div>

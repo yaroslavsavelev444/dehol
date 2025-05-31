@@ -26,52 +26,54 @@ export default function About() {
 
       <LazyLoadComponent skeletonVariant="textBlock">
         <LazyTextImageBlock
-          image={"/public/img/cnc/2.jpg"}
-          title={"Lorem ipsum dolor sit amet."}
+          image={"/public/img/examples/111.png"}
+          title={"Опыта больше, чем слов"}
+          imageWidth="300px"
+  imageHeight="300px"
           subtitle={
-            "Lorem ipsum dolor sit amet consectetur adipisicing elit. Quis, pariatur."
+            "Мы работаем с 2007 года и специализируемся на изготовлении металлических деталей по чертежам заказчика. За это время выполнили сотни заказов для машиностроительных, приборостроительных и оборонных предприятий."
           }
-          text={"Lorem ipsum dolor sit amet consectetur adipisicing elit..."}
         />
       </LazyLoadComponent>
 
       <LazyLoadComponent skeletonVariant="textBlock">
         <LazyTextImageBlock
-          image={"/public/img/cnc/3.jpg"}
+          image={"/public/img/examples/222.png"}
           reversed={true}
-          title={" ipsum dolor sit amet."}
+          title={"Производим на собственном оборудовании"}
+          imageWidth="300px"
+  imageHeight="300px"
           subtitle={
-            "Lorem ipsum dolor sit amet consectetur adipisicing elit. Quis, pariatur."
+            "В нашем распоряжении — современный парк станков с ЧПУ: от токарных центров до пятикоординатных обрабатывающих центров. Все детали изготавливаются силами нашей команды — от заготовки до финишной обработки и контроля качества."
           }
-          text={"Lorem ipsum dolor sit amet consectetur adipisicing elit..."}
         />
       </LazyLoadComponent>
       <LazyLoadComponent skeletonVariant="textBlock">
         <LazyTextImageBlock
-          image={"/public/img/cnc/5.jpg"}
-          title={" ipsum dolor sit amet."}
+          image={"/public/img/examples/333.png"}
+          title={"Детали говорят сами за себя"}
+          imageWidth="300px"
           subtitle={
-            "Lorem ipsum dolor sit amet consectetur adipisicing elit. Quis, pariatur."
+            "Среди реализованных заказов — изготовление формующих элементов, прецизионных валов, крепежных узлов и сложных корпусных деталей. Примеры работ представлены на сайте — это лучшее подтверждение нашей компетенции."
           }
-          text={"Lorem ipsum dolor sit amet consectetur adipisicing elit..."}
         />
       </LazyLoadComponent>
 
-      <LazyLoadComponent skeletonVariant="fullwidth">
+      {/* <LazyLoadComponent skeletonVariant="fullwidth">
         <LazyMosaicGrid images={images} />
-      </LazyLoadComponent>
+      </LazyLoadComponent> */}
 
-      <LazyLoadComponent skeletonVariant="fullwidth">
+      {/* <LazyLoadComponent skeletonVariant="fullwidth">
         <LazyUniformGrid images={images} />
-      </LazyLoadComponent>
+      </LazyLoadComponent> */}
 
-      <div className="page-header-wrapper">
+       <div className="page-header-wrapper">
         <PageHeader title="Наши достижения" />
       </div>
 
-      <LazyLoadComponent skeletonVariant="fullwidth">
+       <LazyLoadComponent skeletonVariant="fullwidth">
         <LazyImageGallery images={diplomas} />
-      </LazyLoadComponent>
+      </LazyLoadComponent> 
 
       <div className="page-header-wrapper">
         <LazyLoadComponent skeletonVariant="fullwidth">

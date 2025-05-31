@@ -43,7 +43,7 @@ const SliderComponent = ({ slides }) => {
   useEffect(() => {
        if (typewriterRef.current) {
          new Typewriter(typewriterRef.current, {
-           strings: ["LOREM IPUM DOLOR SIT AMET", "LOREM IPUM DOLOR SIT AMET"],
+           strings: ["НПО Конструктор", "LOREM IPUM DOLOR SIT AMET"],
            autoStart: true,
            loop: true,
          });

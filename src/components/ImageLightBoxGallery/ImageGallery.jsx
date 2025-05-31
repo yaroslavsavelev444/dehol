@@ -65,7 +65,6 @@ const ImageGallery = ({ images }) => {
                 transition: 'transform 0.2s ease-in-out',
               }}
               loading="lazy" // Ленивая загрузка
-              onClick={() => console.log(`Image ${index + 1} clicked`)}
             />
           </PhotoView>
         ))}
