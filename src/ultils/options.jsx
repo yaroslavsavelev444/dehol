@@ -1,17 +1,17 @@
  export const images = [
-    { src: "/public/img/cnc/1.jpg", title: "ipsum dolor sit amet", className: "size-2x2" },
-    { src: "/public/img/cnc/2.jpg", title: "ipsum dolor sit amet", className: "size-2x1" },
-    { src: "/public/img/cnc/3.jpg", title: "ipsum dolor sit amet", className: "size-1x2" },
-    { src: "/public/img/cnc/4.jpg", title: "ipsum dolor sit amet", className: "size-1x1" },
-    { src: "/public/img/cnc/5.jpg", title: "ipsum dolor sit amet", className: "size-2x1" },
-    { src: "/public/img/cnc/sven-daniel-eaanLTG7TCU-unsplash.jpg", title: "ipsum dolor sit amet", className: "size-1x1" },
+    { src: "/img/cnc/1.jpg", title: "ipsum dolor sit amet", className: "size-2x2" },
+    { src: "/img/cnc/2.jpg", title: "ipsum dolor sit amet", className: "size-2x1" },
+    { src: "/img/cnc/3.jpg", title: "ipsum dolor sit amet", className: "size-1x2" },
+    { src: "/img/cnc/4.jpg", title: "ipsum dolor sit amet", className: "size-1x1" },
+    { src: "/img/cnc/5.jpg", title: "ipsum dolor sit amet", className: "size-2x1" },
+    { src: "/img/cnc/sven-daniel-eaanLTG7TCU-unsplash.jpg", title: "ipsum dolor sit amet", className: "size-1x1" },
   ];
 
    export const diplomas = [
-    { src: "/img-global/iso9001 - 0001.jpg", title: "ipsum dolor sit amet", className: "size-2x2" },
-    { src: "/img-global/iso9001 - 0002.jpg", title: "ipsum dolor sit amet", className: "size-2x2" },
-    { src: "/img-global/iso9001 - 0003.jpg", title: "ipsum dolor sit amet", className: "size-2x2" },
-    { src: "/img-global/iso9001 - 0004.jpg", title: "ipsum dolor sit amet", className: "size-2x2" },
+    { src: "/img/achievments/1.jpg", title: "ipsum dolor sit amet", className: "size-2x2" },
+    { src: "/img/achievments/2.jpg", title: "ipsum dolor sit amet", className: "size-2x2" },
+    { src: "/img/achievments/3.jpg", title: "ipsum dolor sit amet", className: "size-2x2" },
+    { src: "/img/achievments/4.jpg", title: "ipsum dolor sit amet", className: "size-2x2" },
 
   ];
 
@@ -19,7 +19,7 @@
     {
       city: 'Микрон',
       country: 'ТОЧНОСТЬ РАЗМЕРОВ',
-      img: '/public/img/cnc/6.jpg'
+      img: '/img/cnc/6.jpg'
     },
     {
       city: 'Контур',
@@ -88,11 +88,11 @@
   ];
 
   export const imagesProduction = [
-    { src: "/public/img/examples/1.jpg", title: "ipsum dolor sit amet", className: "size-2x2" },
-    { src: "/public/img/examples/3.jpg", title: "ipsum dolor sit amet", className: "size-1x2" },
-    { src: "/public/img/examples/9.jpg", title: "ipsum dolor sit amet", className: "size-1x1" },
-    { src: "/public/img/examples/5.jpg", title: "ipsum dolor sit amet", className: "size-2x1" },
-    { src: "/public/img/examples/6.jpg", title: "ipsum dolor sit amet", className: "size-1x1" },
+    { src: "/img/examples/1.jpg", title: "Деталь 1", className: "size-2x2" },
+    { src: "/img/examples/3.jpg", title: "Деталь 2", className: "size-1x2" },
+    { src: "/img/examples/9.jpg", title: "Деталь 3", className: "size-1x1" },
+    { src: "/img/examples/5.jpg", title: "Деталь 4", className: "size-2x1" },
+    { src: "/img/examples/6.jpg", title: "Деталь 5", className: "size-1x1" },
 
 
   ];

@@ -11,12 +11,19 @@ const UniformGrid = lazy(() =>
 );
 
 export default function Production() {
+  const ph1 = "/img/cnc/cnc1.jpg";
+  const ph2 = "/img/cnc/cnc2.jpg";
+  const ph3 = "/img/cnc/cnc3.jpg";
+  const ph4 = "/img/cnc/cnc4.jpg";
+  const ph5 = "/img/cnc/cnc5.jpg";
+  const ph6 = "/img/cnc/cnc6.jpg";
+  
   return (
     <div className="container">
       <PageHeader title="Оборудование" />
       <LazyLoadComponent skeletonVariant="textBlock">
         <TextImageBlock
-          image={"/public/img/cnc/cnc1.jpg"}
+          image={ph1}
           title={
             "Вертикально-фрезерные станки с ЧПУ"
           }
@@ -29,7 +36,7 @@ export default function Production() {
       <LazyLoadComponent skeletonVariant="textBlock">
         <TextImageBlock
           reversed={true}
-          image={"/public/img/cnc/cnc2.jpg"}
+          image={ph2}
           title={"Электроэрозионный копировально-прошивной станок"}
           subtitle={"В наличии: 1 единица"}
           text={
@@ -39,7 +46,7 @@ export default function Production() {
       </LazyLoadComponent>
       <LazyLoadComponent skeletonVariant="textBlock">
         <TextImageBlock
-          image={"/public/img/cnc/cnc3.jpg"}
+         image={ph3}
           title={"Пятикоординатные обрабатывающие центры (3+2) с ЧПУ "}
           subtitle={"В наличии: 2 единицы"}
           text={
@@ -50,7 +57,7 @@ export default function Production() {
       <LazyLoadComponent skeletonVariant="textBlock">
         <TextImageBlock
           reversed={true}
-          image={"/public/img/cnc/cnc4.jpg"}
+         image={ph4}
           title={
             "Токарные обрабатывающие центры с числовым программным управлением (ЧПУ)"
           }
@@ -60,7 +67,7 @@ export default function Production() {
       </LazyLoadComponent>
       <LazyLoadComponent skeletonVariant="textBlock">
         <TextImageBlock
-          image={"/public/img/cnc/cnc5.jpg"}
+          image={ph5}
           title={
             "Двухшпиндельный автомат продольного точения с функцией фрезерования и ЧПУ"
           }
@@ -71,7 +78,7 @@ export default function Production() {
       <LazyLoadComponent skeletonVariant="textBlock">
         <TextImageBlock
           reversed={true}
-          image={"/public/img/cnc/cnc6.jpg"}
+          image={ph6}
           title={
             "Электроэрозионные проволочно-вырезные станки с числовым программным управлением (ЧПУ)"
           }

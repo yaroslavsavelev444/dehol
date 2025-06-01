@@ -1,7 +1,7 @@
 import React, { lazy } from "react";
 import PageHeader from "../../components/PageHeader/PageHeader";
 import "./About.css";
-import { diplomas, images, slidesExam } from "../../ultils/options";
+import { diplomas, slidesExam } from "../../ultils/options";
 import LazyLoadComponent from "../../components/skeleton/lazyProvider";
 
 const LazyTextImageBlock = lazy(() =>
@@ -26,7 +26,7 @@ export default function About() {
 
       <LazyLoadComponent skeletonVariant="textBlock">
         <LazyTextImageBlock
-          image={"/public/img/examples/111.png"}
+          image={"/img/examples/111.png"}
           title={"Опыта больше, чем слов"}
           imageWidth="300px"
   imageHeight="300px"
@@ -38,7 +38,7 @@ export default function About() {
 
       <LazyLoadComponent skeletonVariant="textBlock">
         <LazyTextImageBlock
-          image={"/public/img/examples/222.png"}
+          image={"/img/examples/222.png"}
           reversed={true}
           title={"Производим на собственном оборудовании"}
           imageWidth="300px"
@@ -50,7 +50,7 @@ export default function About() {
       </LazyLoadComponent>
       <LazyLoadComponent skeletonVariant="textBlock">
         <LazyTextImageBlock
-          image={"/public/img/examples/333.png"}
+          image={"/img/examples/333.png"}
           title={"Детали говорят сами за себя"}
           imageWidth="300px"
           subtitle={

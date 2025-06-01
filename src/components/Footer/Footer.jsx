@@ -70,16 +70,9 @@ const Footer = () => {
           <i className="fab fa-instagram"></i>
         </div>
 
-        <div className="footer-menu">
-          <a href="#">Главная</a>
-          <a href="#">О компании</a>
-          <a href="#">Услуги</a>
-          <a href="#">Производство</a>
-          <a href="#">Контакты</a>
-        </div>
 
         <p className="copyright">
-          ©2025 Твоё Имя | All Rights Reserved
+          ©2025 ООО НПО "Констуктор" | Все права защищены
         </p>
       </div>
     </footer>

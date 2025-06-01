@@ -21,7 +21,7 @@ const services = [
     text: "ФРЕЗЕРНАЯ\nОБРАБОТКА",
     description:
       "  Lorem ipsum dolor sit amet consectetur adipisicing elit. Tempore tempora error enim dolorum numquam! Aspernatur dolor quidem magnam molestiae deleniti.",
-    image: "/public/img/works/IMG_1668.jpeg",
+    image: "/img/works/IMG_1668.jpeg",
     links: [{ label: "Подробнее", href: "/services/3" }],
   },
   {

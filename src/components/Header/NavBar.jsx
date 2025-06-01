@@ -99,6 +99,11 @@ const NavBar = ({sectionsRef}) => {
   };
 
   const handleScrollTo = (section) => {
+    if(section === 'top') {
+      window.scrollTo({ top: 0, behavior: "smooth" });
+      closeMenu();
+      return;
+    }
     if (sectionsRef[section]?.current) {
       sectionsRef[section].current.scrollIntoView({ behavior: "smooth" });
       closeMenu();
@@ -151,7 +156,7 @@ const NavBar = ({sectionsRef}) => {
             <nav className="overlay-nav">
               <NavLink
                 to="/"
-                onClick={closeMenu}
+                onClick={() => handleScrollTo("top")}
                 className={ "nav-link"}
               >
                 Главная

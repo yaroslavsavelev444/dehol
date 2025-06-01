@@ -1,13 +1,13 @@
-import React, { useRef, useState } from 'react';
-import ReCAPTCHA from "react-google-recaptcha"; 
+import React, { useRef, useState } from "react";
+import ReCAPTCHA from "react-google-recaptcha";
 import Input from "../../UI/Input/Input";
 import Button from "../../UI/Buttons/Button";
 import { useToast } from "../Providers/ToastProvider";
 import { X } from "lucide-react";
 import "../FloatingMessageButton/FloatingMessageButton.css";
-import axios from 'axios';
+import axios from "axios";
 
-const RECAPTCHA_SITE_KEY = import.meta.env.VITE_RECAPTCHA_SITE_KEY; 
+const RECAPTCHA_SITE_KEY = import.meta.env.VITE_RECAPTCHA_SITE_KEY;
 
 export default function Form({ onClose }) {
   const formRef = useRef();
@@ -20,18 +20,20 @@ export default function Form({ onClose }) {
   const [phone, setPhone] = useState("");
   const [isLoading, setIsLoading] = useState(false);
   const [captchaToken, setCaptchaToken] = useState(null);
+  const recaptchaRef = useRef();
 
-  const validateEmail = (email) =>
-    email.includes("@") && email.includes(".");
-  const validatePhone = (phone) =>
-    phone.replace(/\D/g, "").length === 11;
+  const validateEmail = (email) => email.includes("@") && email.includes(".");
+  const validatePhone = (phone) => phone.replace(/\D/g, "").length === 11;
 
   const handleSubmit = async (e) => {
     e.preventDefault();
     let valid = true;
 
     if (!name || !email || !phone || !captchaToken) {
-      showToast({ text1: "Заполните все поля и пройдите капчу", type: "warning" });
+      showToast({
+        text1: "Заполните все поля и пройдите капчу",
+        type: "warning",
+      });
       return;
     }
 
@@ -49,22 +51,45 @@ export default function Form({ onClose }) {
       setErrorMessagePhone("");
     }
 
+    if (
+      !captchaToken ||
+      typeof captchaToken !== "string" ||
+      captchaToken.length < 10
+    ) {
+      showToast({
+        text1: "Ошибка с капчей. Попробуйте ещё раз.",
+        type: "warning",
+      });
+      return;
+    }
+
     if (!valid) return;
 
     setIsLoading(true);
 
     try {
       const API_URL = import.meta.env.VITE_API_URL;
+      console.log("captchaToken: ", captchaToken);
       const res = await axios.post(`${API_URL}/constructorForm/submit`, {
-        name, email, phone, captchaToken
+        name,
+        email,
+        phone,
+        captchaToken,
       });
+
+      recaptchaRef.current?.reset();
+      setCaptchaToken(null);
 
       if (res.status === 200) {
         showToast({ text1: "Сообщение отправлено", type: "success" });
         onClose();
       }
     } catch (error) {
-      showToast({ text1: "Ошибка при отправке", text2: error?.response?.data?.message || error.message, type: "error" });
+      showToast({
+        text1: "Ошибка при отправке",
+        text2: error?.response?.data?.message || error.message,
+        type: "error",
+      });
     } finally {
       setIsLoading(false);
     }
@@ -72,22 +97,53 @@ export default function Form({ onClose }) {
 
   return (
     <div className="floating-form">
-      <X size={20} color="#fff" onClick={onClose} style={{ position: "absolute", top: "10px", right: "10px", cursor: "pointer" }} />
+      <X
+        size={20}
+        color="#fff"
+        onClick={onClose}
+        style={{
+          position: "absolute",
+          top: "10px",
+          right: "10px",
+          cursor: "pointer",
+        }}
+      />
       <div className="form-header">
         <h2>Отправить заявку</h2>
       </div>
       <form ref={formRef} onSubmit={handleSubmit}>
         <div className="form-group">
-          <Input name="name" placeholder="Имя" onChange={(e, value) => setName(value)} mask={false} />
+          <Input
+            name="name"
+            placeholder="Имя"
+            onChange={(e, value) => setName(value)}
+            mask={false}
+          />
         </div>
         <div className="form-group">
-          <Input name="email" placeholder="Email" onChange={(e, value) => setEmail(value)} mask={false} errorMessage={errorMessageEmail} />
+          <Input
+            name="email"
+            placeholder="Email"
+            onChange={(e, value) => setEmail(value)}
+            mask={false}
+            errorMessage={errorMessageEmail}
+          />
         </div>
         <div className="form-group">
-          <Input name="phone" placeholder="Телефон" onChange={(e, value) => setPhone(value)} mask="+7 (999) 999-99-99" errorMessage={errorMessagePhone} />
+          <Input
+            name="phone"
+            placeholder="Телефон"
+            onChange={(e, value) => setPhone(value)}
+            mask="+7 (999) 999-99-99"
+            errorMessage={errorMessagePhone}
+          />
         </div>
         <div className="form-group">
-          <ReCAPTCHA sitekey={RECAPTCHA_SITE_KEY} onChange={(token) => setCaptchaToken(token)} />
+          <ReCAPTCHA
+            sitekey={RECAPTCHA_SITE_KEY}
+            onChange={(token) => setCaptchaToken(token)}
+            ref={recaptchaRef}
+          />
         </div>
         <Button type="submit" disabled={isLoading}>
           {isLoading ? "Отправка..." : "Отправить"}
