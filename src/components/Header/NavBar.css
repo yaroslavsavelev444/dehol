@@ -7,6 +7,13 @@
     background-color: #181818;
   }
   
+  /* NavBar.css */
+.no-scroll {
+  overflow: hidden;
+  position: relative;
+  height: 100vh;
+  width: 100vw;
+}
   .null-menu {
     width: 100%;
     background-color: transparent;

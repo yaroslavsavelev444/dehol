@@ -19,8 +19,8 @@ export default function Home({sectionsRef}) {
       <SliderComponent slides={slides} />
       <section ref={sectionsRef.about}>
         <About />
-      </section>
-      <section ref={sectionsRef.services}>
+      </section> 
+       <section ref={sectionsRef.services}>
         <Services />
       </section>
       <section ref={sectionsRef.production}>

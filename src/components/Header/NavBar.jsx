@@ -5,9 +5,11 @@ import { Menu } from "lucide-react";
 import Button from "../../UI/Buttons/Button";
 import Input from "../../UI/Input/Input";
 import { useToast } from "../Providers/ToastProvider";
-import { sendEmail } from "../../ultils/emailSend";
+import sendReq from "../../api/sendReq";
+import ReCAPTCHA from "react-google-recaptcha";
 
 const NavBar = ({sectionsRef}) => {
+  const RECAPTCHA_SITE_KEY = import.meta.env.VITE_RECAPTCHA_SITE_KEY;
   const [menuOpen, setMenuOpen] = useState(false);
   const [showHeader, setShowHeader] = useState(true);
   const [isAtTop, setIsAtTop] = useState(true);
@@ -19,6 +21,8 @@ const NavBar = ({sectionsRef}) => {
   const closeMenu = () => setMenuOpen(false);
   const { showToast } = useToast();
   const [errorMessagePhone, setErrorMessagePhone] = useState("");
+    const [captchaToken, setCaptchaToken] = useState(null);
+    const recaptchaRef = useRef();
 
   const handleScroll = () => {
     const currentScrollY = window.scrollY;
@@ -40,17 +44,6 @@ const NavBar = ({sectionsRef}) => {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
-  useEffect(() => {
-    if (menuOpen) {
-      document.body.style.overflow = "hidden"; // Блокируем прокрутку
-    } else {
-      document.body.style.overflow = "auto"; // Возвращаем прокрутку
-    }
-
-    return () => {
-      document.body.style.overflow = "auto"; // На случай размонтирования компонента
-    };
-  }, [menuOpen]);
 
   useEffect(() => {
     const handleKeyDown = (event) => {
@@ -87,8 +80,26 @@ const NavBar = ({sectionsRef}) => {
 
     setIsLoading(true);
 
+    if (!captchaToken) {
+  showToast({ text1: "Подтвердите, что вы не робот", type: "warning" });
+  return;
+}
+
     try {
-      await sendEmail(formRef.current);
+      const res = await sendReq(
+        '',
+        '',
+        phone,
+        captchaToken,
+        "constructorForm/submit"
+      );
+       recaptchaRef.current?.reset();
+      setCaptchaToken(null);
+
+      if (res.status === 200) {
+        showToast({ text1: "Сообщение отправлено", type: "success" });
+        setPhone("");
+      }
       showToast({ text1: "Сообщение отправлено", type: "success" });
       setPhone("");
     } catch (error) {
@@ -111,6 +122,7 @@ const NavBar = ({sectionsRef}) => {
   };
 
 
+  
   return (
     <div
       className={`headers-wrapper ${showHeader ? "visible" : "hidden"} ${
@@ -217,6 +229,13 @@ const NavBar = ({sectionsRef}) => {
                   errorMessage={errorMessagePhone}
                   name="phone"
                 />
+                {phone.trim() !== "" && (
+  <ReCAPTCHA
+    sitekey={RECAPTCHA_SITE_KEY}
+    onChange={(token) => setCaptchaToken(token)}
+    ref={recaptchaRef}
+  />
+)}
                 <Button
                   className="overlay-nav-button"
                   type="submit"
@@ -233,4 +252,6 @@ const NavBar = ({sectionsRef}) => {
   );
 };
 
+
 export default NavBar;
+

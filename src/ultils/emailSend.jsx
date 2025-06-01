@@ -7,7 +7,6 @@ const PUBLIC_KEY = import.meta.env.VITE_EMAILJS_PUBLIC_KEY;
 export const sendEmail = async (formRef) => {
   try {
     const result = await sendForm(SERVICE_ID, TEMPLATE_ID, formRef, PUBLIC_KEY);
-    console.log('Email отправлен:', result.text);
     return result;
   } catch (error) {
     console.error('Ошибка при отправке:', error);

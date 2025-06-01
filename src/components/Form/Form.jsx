@@ -5,7 +5,7 @@ import Button from "../../UI/Buttons/Button";
 import { useToast } from "../Providers/ToastProvider";
 import { X } from "lucide-react";
 import "../FloatingMessageButton/FloatingMessageButton.css";
-import axios from "axios";
+import sendReq from "../../api/sendReq";
 
 const RECAPTCHA_SITE_KEY = import.meta.env.VITE_RECAPTCHA_SITE_KEY;
 
@@ -68,15 +68,13 @@ export default function Form({ onClose }) {
     setIsLoading(true);
 
     try {
-      const API_URL = import.meta.env.VITE_API_URL;
-      console.log("captchaToken: ", captchaToken);
-      const res = await axios.post(`${API_URL}/constructorForm/submit`, {
+      const res = await sendReq(
         name,
         email,
         phone,
         captchaToken,
-      });
-
+        "constructorForm/submit"
+      );
       recaptchaRef.current?.reset();
       setCaptchaToken(null);
 
@@ -109,7 +107,7 @@ export default function Form({ onClose }) {
         }}
       />
       <div className="form-header">
-        <h2>Отправить заявку</h2>
+        <h2>Связаться с нами</h2>
       </div>
       <form ref={formRef} onSubmit={handleSubmit}>
         <div className="form-group">
@@ -138,13 +136,15 @@ export default function Form({ onClose }) {
             errorMessage={errorMessagePhone}
           />
         </div>
-        <div className="form-group">
-          <ReCAPTCHA
-            sitekey={RECAPTCHA_SITE_KEY}
-            onChange={(token) => setCaptchaToken(token)}
-            ref={recaptchaRef}
-          />
-        </div>
+        {(phone.trim() !== "" || email.trim() !== "" || name.trim() !== "") && (
+  <div className="form-group">
+    <ReCAPTCHA
+      sitekey={RECAPTCHA_SITE_KEY}
+      onChange={(token) => setCaptchaToken(token)}
+      ref={recaptchaRef}
+    />
+  </div>
+)}
         <Button type="submit" disabled={isLoading}>
           {isLoading ? "Отправка..." : "Отправить"}
         </Button>

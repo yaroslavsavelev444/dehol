@@ -29,8 +29,8 @@ export default function About() {
           image={"/img/examples/111.png"}
           title={"Опыта больше, чем слов"}
           imageWidth="300px"
-  imageHeight="300px"
-          subtitle={
+          imageHeight="300px"
+          text={
             "Мы работаем с 2007 года и специализируемся на изготовлении металлических деталей по чертежам заказчика. За это время выполнили сотни заказов для машиностроительных, приборостроительных и оборонных предприятий."
           }
         />
@@ -42,8 +42,8 @@ export default function About() {
           reversed={true}
           title={"Производим на собственном оборудовании"}
           imageWidth="300px"
-  imageHeight="300px"
-          subtitle={
+          imageHeight="300px"
+          text={
             "В нашем распоряжении — современный парк станков с ЧПУ: от токарных центров до пятикоординатных обрабатывающих центров. Все детали изготавливаются силами нашей команды — от заготовки до финишной обработки и контроля качества."
           }
         />
@@ -53,7 +53,7 @@ export default function About() {
           image={"/img/examples/333.png"}
           title={"Детали говорят сами за себя"}
           imageWidth="300px"
-          subtitle={
+          text={
             "Среди реализованных заказов — изготовление формующих элементов, прецизионных валов, крепежных узлов и сложных корпусных деталей. Примеры работ представлены на сайте — это лучшее подтверждение нашей компетенции."
           }
         />
@@ -67,20 +67,19 @@ export default function About() {
         <LazyUniformGrid images={images} />
       </LazyLoadComponent> */}
 
-       <div className="page-header-wrapper">
+      <div className="page-header-wrapper">
         <PageHeader title="Наши достижения" />
       </div>
 
-       <LazyLoadComponent skeletonVariant="fullwidth">
+      <LazyLoadComponent skeletonVariant="fullwidth">
         <LazyImageGallery images={diplomas} />
-      </LazyLoadComponent> 
+      </LazyLoadComponent>
 
       <div className="page-header-wrapper">
         <LazyLoadComponent skeletonVariant="fullwidth">
           <LazyCitiesSlider slides={slidesExam} />
         </LazyLoadComponent>
       </div>
-
     </div>
   );
 }
