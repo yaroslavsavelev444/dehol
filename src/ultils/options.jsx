@@ -75,15 +75,6 @@
         'обработка по 3–5 осям',
         'поддержка 3D моделей'
       ]
-    },
-    {
-      title: 'Шлифовка',
-      description: 'Все виды шлифовальных работ на надёжных станках.',
-      items: [
-        'плоская и круглая шлифовка',
-        'работа с твёрдыми сплавами',
-        'индивидуальные решения'
-      ],
     }
   ];
 
@@ -91,8 +82,16 @@
     { src: "/img/examples/1.jpg", title: "Деталь 1", className: "size-2x2" },
     { src: "/img/examples/3.jpg", title: "Деталь 2", className: "size-1x2" },
     { src: "/img/examples/9.jpg", title: "Деталь 3", className: "size-1x1" },
-    { src: "/img/examples/5.jpg", title: "Деталь 4", className: "size-2x1" },
     { src: "/img/examples/6.jpg", title: "Деталь 5", className: "size-1x1" },
+    { src: "/img/examples/ud1.jpg", title: "Деталь 6", className: "size-1x1" },
+    { src: "/img/examples/ud2.jpg", title: "Деталь 7", className: "size-1x1" },
+    { src: "/img/examples/ud3.jpg", title: "Деталь 8", className: "size-1x1" },
+    { src: "/img/examples/ud4.jpg", title: "Деталь 9", className: "size-1x1" },
+    { src: "/img/examples/ud5.jpg", title: "Деталь 10", className: "size-1x1" },
+    { src: "/img/examples/ud6.jpg", title: "Деталь 11", className: "size-1x1" },
+    { src: "/img/examples/ud7.jpg", title: "Деталь 12", className: "size-1x1" },
+    { src: "/img/examples/ud8.jpg", title: "Деталь 13", className: "size-1x1" },
+    { src: "/img/examples/ud9.jpg", title: "Деталь 14", className: "size-1x1" },
 
 
   ];

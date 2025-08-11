@@ -26,12 +26,12 @@ export default function About() {
 
       <LazyLoadComponent skeletonVariant="textBlock">
         <LazyTextImageBlock
-          image={"/img/examples/111.png"}
-          title={"Опыта больше, чем слов"}
+          title={"О компании"}
           imageWidth="300px"
+          image={"/img/examples/1112.png"}
           imageHeight="300px"
           text={
-            "Мы работаем с 2007 года и специализируемся на изготовлении металлических деталей по чертежам заказчика. За это время выполнили сотни заказов для машиностроительных, приборостроительных и оборонных предприятий."
+            "Наша компания является признанным экспертом в сфере металлообработки с более чем 15-летним опытом успешной работы на рынке. Мы располагаем крупным современным парком оборудования, включающим свыше 30 единиц станков с ЧПУ, что позволяет нам гарантированно изготавливать детали сложнейших конфигураций с высочайшей точностью обработки до 7-го квалитета включительно."
           }
         />
       </LazyLoadComponent>
@@ -44,36 +44,36 @@ export default function About() {
           imageWidth="300px"
           imageHeight="300px"
           text={
-            "В нашем распоряжении — современный парк станков с ЧПУ: от токарных центров до пятикоординатных обрабатывающих центров. Все детали изготавливаются силами нашей команды — от заготовки до финишной обработки и контроля качества."
+            "В нашем распоряжении — современный парк станков с ЧПУ: от токарных центров до пятикоординатных обрабатывающих центров. Все детали изготавливаются силами нашей команды — от заготовки до финишной обработки и контроля качества.Обработка широкого спектра материалов: Алюминий, Латунь, Медь, Бронза, Мельхиор, Нержавеющая сталь, Жаропрочные сплавы (включая 36НХТЮ, 29НК, 47НД), Псевдосплавы (МД-40, МД-50), а также конструкционные полимеры (Капролон, Стеклотекстолит) и другие."
           }
         />
       </LazyLoadComponent>
       <LazyLoadComponent skeletonVariant="textBlock">
         <LazyTextImageBlock
           image={"/img/examples/333.png"}
-          title={"Детали говорят сами за себя"}
+          title={"Статус и компетенции"}
           imageWidth="300px"
           text={
-            "Среди реализованных заказов — изготовление формующих элементов, прецизионных валов, крепежных узлов и сложных корпусных деталей. Примеры работ представлены на сайте — это лучшее подтверждение нашей компетенции."
+            "Являемся надежным подрядчиком для крупнейших промышленных предприятий и концернов.Обладаем подтвержденным опытом и необходимыми компетенциями для работы в рамках Федерального закона № 275-ФЗ (ГОЗ)."
           }
         />
       </LazyLoadComponent>
 
       {/* <LazyLoadComponent skeletonVariant="fullwidth">
         <LazyMosaicGrid images={images} />
-      </LazyLoadComponent> */}
-
-      {/* <LazyLoadComponent skeletonVariant="fullwidth">
-        <LazyUniformGrid images={images} />
-      </LazyLoadComponent> */}
-
-      <div className="page-header-wrapper">
-        <PageHeader title="Наши достижения" />
-      </div>
+      </LazyLoadComponent> //TODO
 
       <LazyLoadComponent skeletonVariant="fullwidth">
+        <LazyUniformGrid images={images} />
+      </LazyLoadComponent> //TODO */}
+
+      {/* <div className="page-header-wrapper">
+        <PageHeader title="Наши достижения" />
+      </div> */}
+
+      {/* <LazyLoadComponent skeletonVariant="fullwidth">
         <LazyImageGallery images={diplomas} />
-      </LazyLoadComponent>
+      </LazyLoadComponent> */}
 
       <div className="page-header-wrapper">
         <LazyLoadComponent skeletonVariant="fullwidth">

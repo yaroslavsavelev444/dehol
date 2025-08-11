@@ -136,8 +136,8 @@ const NavBar = ({sectionsRef}) => {
           {!isAtTop && (
             <div className="contact-info-container">
               <div className="contact-info">
-                <a href="tel:+79991234567" className="contact-item">
-                  +7 (999) 123-45-67
+                <a href="tel:+79209680801" className="contact-item">
+                  +7 (920) 968-08-01 
                 </a>
                 <a
                   href="https://yandex.ru/maps/?text=Москва%2C%20ул.%20Примерная%2C%201"
@@ -149,8 +149,8 @@ const NavBar = ({sectionsRef}) => {
                 </a>
               </div>
               <div className="contact-info">
-                <a href="mailto:optimazavod@yandex.ru" className="contact-item">
-                  optimazavod@yandex.ru
+                <a href="mailto:npoconstructor@yandex.ru" className="contact-item">
+                  npoconstructor@yandex.ru
                 </a>
                 <span className="contact-item">Пн–Пт: 9:00–18:00</span>
               </div>
@@ -209,7 +209,7 @@ const NavBar = ({sectionsRef}) => {
               <label htmlFor="email" className="overlay-nav-label">
                 Email :
                 <p id="email" className="overlay-nav-label-item">
-                  optimazavod@yandex.ru
+                  npoconstructor@yandex.ru
                 </p>
               </label>
               <form ref={formRef} onSubmit={handleSubmit}>

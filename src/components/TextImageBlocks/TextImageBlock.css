@@ -62,6 +62,9 @@
 .swiper-button-prev {
   cursor: pointer;
   z-index: 20;
+  color: white !important;
+  background: none !important;
+  border: none !important;
 }
 
 /* Улучшенные стили для активного слайда */

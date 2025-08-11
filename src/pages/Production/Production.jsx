@@ -24,9 +24,6 @@ export default function Production() {
   const frez11 = "/img/frez/11.jpeg";
   const frez12 = "/img/frez/12.jpeg";
   const frez13 = "/img/frez/13.jpeg";
-  const frez14 = "/img/frez/14.jpeg";
-  const frez15 = "/img/frez/15.jpeg";
-  const frez16 = "/img/frez/16.jpeg";
 
   const electro1 = "/img/electro/1.jpeg";
   const electro2 = "/img/electro/2.jpeg";
@@ -67,12 +64,9 @@ export default function Production() {
             frez11,
             frez12,
             frez13,
-            frez14,
-            frez15,
-            frez16,
           ]}
           title={"Фрезерные станки с ЧПУ"}
-          subtitle={"В наличии: 6 единиц"}
+          subtitle={"В наличии: 15 единиц"}
           text={
             "Предназначены для высокоточной 3-осевой обработки деталей из металла и сплавов. Обрабатываемые детали — до 900×450×600 мм."
           }
@@ -83,7 +77,7 @@ export default function Production() {
           reversed={true}
           images={[electro1, electro2]}
           title={"Электроэрозионный копировально-прошивной станок"}
-          subtitle={"В наличии: 1 единица"}
+          subtitle={"В наличии: 4 единица"}
           text={
             "Применяется для формообразования сложных внутренних контуров и прецизионной обработки твердых материалов. Максимальный размер детали — 350×250×200 мм."
           }
@@ -93,7 +87,7 @@ export default function Production() {
         <TextImageBlock
           images={[treetwo1, treetwo2, treetwo3, treetwo4, treetwo5]}
           title={"Пятикоординатные обрабатывающие центры (3+2) с ЧПУ "}
-          subtitle={"В наличии: 2 единицы"}
+          subtitle={"В наличии: 3 единицы"}
           text={
             "Позволяют обрабатывать детали со сложной геометрией за один установ. Максимальные размеры заготовок — 600×600×500 мм."
           }
@@ -102,23 +96,11 @@ export default function Production() {
       <LazyLoadComponent skeletonVariant="textBlock">
         <TextImageBlock
           reversed={true}
-          images={[tokar1, tokar2, tokar3]}
-          title={
-            "Токарные обрабатывающие центры с числовым программным управлением (ЧПУ)"
-          }
-          subtitle={"В наличии: 3 единицы"}
-          text={
-            "Предназначены для токарной обработки цилиндрических и конических деталей с высокой точностью. Обрабатываются заготовки до Ø480×500 мм"
-          }
-        />
-      </LazyLoadComponent>
-      <LazyLoadComponent skeletonVariant="textBlock">
-        <TextImageBlock
-          images={[tokarfrez1, tokarfrez2]}
+          images={[tokar1, tokar2, tokar3, tokarfrez1, tokarfrez2]}
           title={
             "Токарно-фрезерные обрабатывающие центры с числовым программным управлением (ЧПУ)"
           }
-          subtitle={"В наличии: 3 единицы"}
+          subtitle={"В наличии: 7 единицы"}
           text={
             "Предназначены для токарной обработки цилиндрических и конических деталей с высокой точностью. Обрабатываются заготовки до Ø480×500 мм"
           }
@@ -126,12 +108,11 @@ export default function Production() {
       </LazyLoadComponent>
       <LazyLoadComponent skeletonVariant="textBlock">
         <TextImageBlock
-        reversed={true}
           images={[autProdol1, autProdol2, autProdol3]}
           title={
             "Двухшпиндельный автомат продольного точения с функцией фрезерования и ЧПУ"
           }
-          subtitle={"В наличии: 1 единица"}
+          subtitle={"В наличии: 3 единица"}
           text={
             "Обеспечивает точную комплексную обработку мелких прецизионных деталей Ø20×180 мм в автоматическом режиме"
           }
