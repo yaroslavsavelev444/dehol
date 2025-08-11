@@ -17,7 +17,7 @@ function App() {
 
   const sectionsRef = {
     about: useRef(null),
-    services: useRef(null), // ✅ вот правильный ключ
+    services: useRef(null),
     production: useRef(null),
     contacts: useRef(null),
   };

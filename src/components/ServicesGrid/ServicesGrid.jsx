@@ -18,7 +18,7 @@ export default function ServicesGrid ({ services }) {
           data-aos-delay={index * 150} // задержка между карточками
           className='service-card-container'
         >
-          <ServiceCard {...service} />
+          <ServiceCard {...service}  />
         </div>
       ))}
     </div>

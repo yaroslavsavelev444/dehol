@@ -11,22 +11,67 @@ const UniformGrid = lazy(() =>
 );
 
 export default function Production() {
-  const ph1 = "/img/cnc/cnc1.jpg";
-  const ph2 = "/img/cnc/cnc2.jpg";
-  const ph3 = "/img/cnc/cnc3.jpg";
-  const ph4 = "/img/cnc/cnc4.jpg";
-  const ph5 = "/img/cnc/cnc5.jpg";
-  const ph6 = "/img/cnc/cnc6.jpg";
-  
+  const frez1 = "/img/frez/1.jpeg";
+  const frez2 = "/img/frez/2.jpeg";
+  const frez3 = "/img/frez/3.jpeg";
+  const frez4 = "/img/frez/4.jpeg";
+  const frez5 = "/img/frez/5.jpeg";
+  const frez6 = "/img/frez/6.jpeg";
+  const frez7 = "/img/frez/7.jpeg";
+  const frez8 = "/img/frez/8.jpeg";
+  const frez9 = "/img/frez/9.jpeg";
+  const frez10 = "/img/frez/10.jpeg";
+  const frez11 = "/img/frez/11.jpeg";
+  const frez12 = "/img/frez/12.jpeg";
+  const frez13 = "/img/frez/13.jpeg";
+  const frez14 = "/img/frez/14.jpeg";
+  const frez15 = "/img/frez/15.jpeg";
+  const frez16 = "/img/frez/16.jpeg";
+
+  const electro1 = "/img/electro/1.jpeg";
+  const electro2 = "/img/electro/2.jpeg";
+
+  const treetwo1 = "/img/frez32-stol/1.jpeg";
+  const treetwo2 = "/img/frez32-stol/2.jpeg";
+  const treetwo3 = "/img/frez32-stol/3.jpeg";
+  const treetwo4 = "/img/frez32-stol/4.jpeg";
+  const treetwo5 = "/img/frez32-stol/5.jpeg";
+
+  const autProdol1 = "/img/aut-prodol/1.jpeg";
+  const autProdol2 = "/img/aut-prodol/2.jpeg";
+  const autProdol3 = "/img/aut-prodol/3.jpeg";
+
+  const tokar1 = "/img/tokar/1.jpeg";
+  const tokar2 = "/img/tokar/2.jpeg";
+  const tokar3 = "/img/tokar/3.jpeg";
+
+  const tokarfrez1 = "/img/tokar-frez/1.jpeg";
+  const tokarfrez2 = "/img/tokar-frez/2.jpeg";
+
   return (
     <div className="container">
       <PageHeader title="Оборудование" />
       <LazyLoadComponent skeletonVariant="textBlock">
         <TextImageBlock
-          image={ph1}
-          title={
-            "Вертикально-фрезерные станки с ЧПУ"
-          }
+          images={[
+            frez1,
+            frez2,
+            frez3,
+            frez4,
+            frez5,
+            frez6,
+            frez7,
+            frez8,
+            frez9,
+            frez10,
+            frez11,
+            frez12,
+            frez13,
+            frez14,
+            frez15,
+            frez16,
+          ]}
+          title={"Фрезерные станки с ЧПУ"}
           subtitle={"В наличии: 6 единиц"}
           text={
             "Предназначены для высокоточной 3-осевой обработки деталей из металла и сплавов. Обрабатываемые детали — до 900×450×600 мм."
@@ -36,7 +81,7 @@ export default function Production() {
       <LazyLoadComponent skeletonVariant="textBlock">
         <TextImageBlock
           reversed={true}
-          image={ph2}
+          images={[electro1, electro2]}
           title={"Электроэрозионный копировально-прошивной станок"}
           subtitle={"В наличии: 1 единица"}
           text={
@@ -46,7 +91,7 @@ export default function Production() {
       </LazyLoadComponent>
       <LazyLoadComponent skeletonVariant="textBlock">
         <TextImageBlock
-         image={ph3}
+          images={[treetwo1, treetwo2, treetwo3, treetwo4, treetwo5]}
           title={"Пятикоординатные обрабатывающие центры (3+2) с ЧПУ "}
           subtitle={"В наличии: 2 единицы"}
           text={
@@ -57,25 +102,42 @@ export default function Production() {
       <LazyLoadComponent skeletonVariant="textBlock">
         <TextImageBlock
           reversed={true}
-         image={ph4}
+          images={[tokar1, tokar2, tokar3]}
           title={
             "Токарные обрабатывающие центры с числовым программным управлением (ЧПУ)"
           }
           subtitle={"В наличии: 3 единицы"}
-          text={"Предназначены для токарной обработки цилиндрических и конических деталей с высокой точностью. Обрабатываются заготовки до Ø480×500 мм"}
+          text={
+            "Предназначены для токарной обработки цилиндрических и конических деталей с высокой точностью. Обрабатываются заготовки до Ø480×500 мм"
+          }
         />
       </LazyLoadComponent>
       <LazyLoadComponent skeletonVariant="textBlock">
         <TextImageBlock
-          image={ph5}
+          images={[tokarfrez1, tokarfrez2]}
+          title={
+            "Токарно-фрезерные обрабатывающие центры с числовым программным управлением (ЧПУ)"
+          }
+          subtitle={"В наличии: 3 единицы"}
+          text={
+            "Предназначены для токарной обработки цилиндрических и конических деталей с высокой точностью. Обрабатываются заготовки до Ø480×500 мм"
+          }
+        />
+      </LazyLoadComponent>
+      <LazyLoadComponent skeletonVariant="textBlock">
+        <TextImageBlock
+        reversed={true}
+          images={[autProdol1, autProdol2, autProdol3]}
           title={
             "Двухшпиндельный автомат продольного точения с функцией фрезерования и ЧПУ"
           }
           subtitle={"В наличии: 1 единица"}
-          text={"Обеспечивает точную комплексную обработку мелких прецизионных деталей Ø20×180 мм в автоматическом режиме"}
+          text={
+            "Обеспечивает точную комплексную обработку мелких прецизионных деталей Ø20×180 мм в автоматическом режиме"
+          }
         />
       </LazyLoadComponent>
-      <LazyLoadComponent skeletonVariant="textBlock">
+      {/* <LazyLoadComponent skeletonVariant="textBlock">
         <TextImageBlock
           reversed={true}
           image={ph6}
@@ -87,7 +149,7 @@ export default function Production() {
             "Идеальны для резки твердых металлов и создания тонких контуров высокой сложности. Поддерживают обработку деталей до 630×500×500 мм."
           }
         />
-      </LazyLoadComponent>
+      </LazyLoadComponent> */}
       <div className="page-header-wrapper">
         <PageHeader title="Примеры работ" />
       </div>

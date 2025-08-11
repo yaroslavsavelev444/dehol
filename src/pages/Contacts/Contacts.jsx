@@ -12,7 +12,7 @@ export default function Contacts() {
       <div className="text-wrapper">
         <div className="dual-non-equals-wrapper">
           <div className="left-side">
-            <h2>ООО НПО "Констуктор"</h2>
+            <h2 style={{marginTop: 0}}>ООО НПО "Констуктор"</h2>
             <a
               href="https://yandex.ru/maps/?text=Москва%2C%20ул.%20Примерная%2C%201"
               target="_blank"
@@ -21,12 +21,12 @@ export default function Contacts() {
             >
               Рязань, ул. Шабулина, 9
             </a>
+            <p>
             <a href="tel:+79991234567" className="contact-item">
-              {" "}
               +7 (999) 123-45-67
             </a>
+            </p>
             <p>
-              {" "}
               <a href="mailto:optimazavod@yandex.ru" className="contact-item">
                 optimazavod@yandex.ru
               </a>
@@ -34,8 +34,7 @@ export default function Contacts() {
             <span className="contact-item">Пн–Пт: 9:00–18:00</span>
           </div>
           <div className="right-side">
-            ПРОЕЗД на автотранспорте: КПП №1. В Яндекс Навигаторе вводите адрес:
-            Рязань , ул. Шабулина 9. Lorem ipsum, dolor sit amet consectetur adipisicing elit. Veniam ut iusto autem debitis suscipit qui blanditiis consequuntur, non aut impedit.
+            Проезд на автотранспорте: см. выделенный маршрут на карте ниже 
           </div>
         </div>
       </div>

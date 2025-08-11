@@ -1,10 +1,13 @@
-import React, { useState, useEffect } from "react";
-import { PhotoProvider, PhotoView } from 'react-photo-view';
-import 'react-photo-view/dist/react-photo-view.css';
-import AOS from 'aos';
-import 'aos/dist/aos.css';
+import React, { useState, useEffect, useRef } from "react";
+import { PhotoProvider, PhotoView } from "react-photo-view";
+import "react-photo-view/dist/react-photo-view.css";
+import AOS from "aos";
+import "aos/dist/aos.css";
 import "./TextImageBlock.css";
-import imageCompression from 'browser-image-compression';
+import { Swiper, SwiperSlide } from "swiper/react";
+import { Navigation } from "swiper/modules"; 
+import "swiper/css";
+import "swiper/css/navigation";
 
 export default function TextImageBlock({
   reversed,
@@ -12,10 +15,14 @@ export default function TextImageBlock({
   subtitle,
   text,
   image,
+  images,
   imageWidth,
-  imageHeight
+  imageHeight,
 }) {
-  const [compressedImage, setCompressedImage] = useState(image);
+  const [slides, setSlides] = useState([]);
+  const [activeIndex, setActiveIndex] = useState(0);
+  const nextRef = useRef(null);
+  const prevRef = useRef(null);
 
   useEffect(() => {
     AOS.init({
@@ -24,28 +31,23 @@ export default function TextImageBlock({
       offset: 50,
     });
 
-    setTimeout(() => {
-      AOS.refresh();
-    }, 100);
+    setTimeout(() => AOS.refresh(), 100);
 
-    const compressImage = async () => {
-      try {
-        const options = {
-          maxSizeMB: 1,
-          maxWidthOrHeight: 800,
-          useWebWorker: true,
-        };
+    const finalImages = images || (image ? [image] : []);
+    setSlides(finalImages);
+  }, [image, images]);
 
-        const compressedFile = await imageCompression(image, options);
-        const compressedUrl = URL.createObjectURL(compressedFile);
-        setCompressedImage(compressedUrl);
-      } catch (error) {
-        console.error("Ошибка при сжатии изображения:", error);
-      }
-    };
+  const handleSlideChange = (swiper) => {
+    setActiveIndex(swiper.activeIndex);
+  };
 
-    compressImage();
-  }, [image]);
+  const handleClick = (e) => {
+    // Предотвращаем открытие PhotoView при клике на навигацию
+    if (e.target.closest('.swiper-button-next') || 
+        e.target.closest('.swiper-button-prev')) {
+      e.stopPropagation();
+    }
+  };
 
   return (
     <PhotoProvider>
@@ -56,18 +58,64 @@ export default function TextImageBlock({
             <h4>{subtitle || ""}</h4>
             <p>{text || ""}</p>
           </div>
+
           <div className="ti-image">
-            <PhotoView src={compressedImage}>
-              <img
-                src={compressedImage}
-                alt="cnc"
-                loading="lazy"
-                style={{
-                  width: imageWidth || '100%',
-                  height: imageHeight || 'auto',
-                }}
-              />
-            </PhotoView>
+            {slides.length === 1 ? (
+              <PhotoView src={slides[0]}>
+                <img
+                  src={slides[0]}
+                  alt="cnc"
+                  loading="lazy"
+                  style={{
+                    width: imageWidth || "100%",
+                    height: imageHeight || "auto",
+                  }}
+                />
+              </PhotoView>
+            ) : (
+              <div className="swiper-container" onClick={handleClick}>
+                <Swiper
+                  modules={[Navigation]}
+                  navigation={{
+                    nextEl: nextRef.current,
+                    prevEl: prevRef.current,
+                  }}
+                  spaceBetween={10}
+                  slidesPerView="auto"
+                  centeredSlides={true}
+                  className="custom-swiper"
+                  onSlideChange={handleSlideChange}
+                >
+                  {slides.map((slide, index) => (
+                    <SwiperSlide key={index}>
+                      <PhotoView src={slide}>
+                        <img 
+                          src={slide} 
+                          alt={`slide-${index}`} 
+                          loading="lazy" 
+                          className="swiper-slide-image"
+                        />
+                      </PhotoView>
+                    </SwiperSlide>
+                  ))}
+                  
+                  {/* Счетчик изображений */}
+                  <div className="swiper-counter">
+                    {activeIndex + 1} / {slides.length}
+                  </div>
+                  
+                  {/* Навигационные кнопки */}
+                  <div 
+                    ref={nextRef} 
+                    className="swiper-button-next"
+                  />
+                  <div 
+                    ref={prevRef} 
+                    className="swiper-button-prev" 
+                  />
+                </Swiper>
+              </div>
+            )}
           </div>
         </div>
       </div>

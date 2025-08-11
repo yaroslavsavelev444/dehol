@@ -54,6 +54,7 @@ height: 100%;
     flex-direction: column;
     gap: 1.2rem;
     background-color: black;
+    height: 85%;
     transition: transform 0.3s ease, box-shadow 0.3s ease;
   }
   
@@ -68,39 +69,34 @@ height: 100%;
   font-weight: bold;
   text-transform: uppercase;
 
-  display: -webkit-box;
-  -webkit-line-clamp: 2;     /* Ограничиваем до 2 строк */
-  -webkit-box-orient: vertical;
-  overflow: hidden;
-  text-overflow: ellipsis;
-  line-height: 1.4rem;        /* Задаём точную высоту строки */
-  min-height: calc(1.4rem * 2); /* Ровно на 2 строки */
+  display: block;
+  -webkit-line-clamp: unset; /* Убираем ограничение по строкам */
+  -webkit-box-orient: unset;
+  overflow: visible; /* Разрешаем переполнение */
+  text-overflow: unset;
+  
+  /* Добавляем свойства для переноса слов */
+  word-wrap: break-word; /* Перенос длинных слов */
+  overflow-wrap: anywhere; /* Более современная альтернатива */
+  hyphens: auto; /* Улучшает перенос слов */
 }
 
-.service-description {
+.service-description,
+.service-note {
   font-size: 1rem;
   color: #ffffff;
 
-  display: -webkit-box;
-  -webkit-line-clamp: 2;     /* Ограничиваем до 2 строк */
-  -webkit-box-orient: vertical;
-  overflow: hidden;
-  text-overflow: ellipsis;
-  line-height: 1.4rem;
-  min-height: calc(1.4rem * 2); /* Ровно на 2 строки */
-}
+  display: block; /* Вместо -webkit-box */
+  overflow: visible; /* Разрешаем переполнение */
+  text-overflow: unset;
 
-.service-note {
-  font-size: 0.9rem;
-  color: #ffffff;
+  /* Переносы слов */
+  word-wrap: break-word;
+  overflow-wrap: anywhere;
+  hyphens: auto;
 
-  display: -webkit-box;
-  -webkit-line-clamp: 2;
-  -webkit-box-orient: vertical;
-  overflow: hidden;
-  text-overflow: ellipsis;
-  line-height: 1.3rem;
-  min-height: calc(1.3rem * 2);
+  line-height: 1.4rem; /* или нужное тебе значение */
+  min-height: unset; /* убираем фиксированную высоту */
 }
   
   .service-list {

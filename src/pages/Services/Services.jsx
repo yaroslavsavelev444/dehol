@@ -9,16 +9,16 @@ export default function Services() {
   const LazyServicesGrid = lazy(() => import('../../components/ServicesGrid/ServicesGrid'));
 const LazyServicesIconsGrid = lazy(() => import('../../components/ServicesIconsGrid/ServicesIconsGrid'));
   return (
-    <div className='container'>
+    <div className='container' style={{minHeight: 'auto'}}>
       <PageHeader title="Услуги" />
 
       <LazyLoadComponent skeletonVariant="fullwidth">
         <LazyServicesGrid services={servicesData} />
       </LazyLoadComponent>
 
-      <LazyLoadComponent skeletonVariant="fullwidth">
+      {/* <LazyLoadComponent skeletonVariant="fullwidth">
         <LazyServicesIconsGrid />
-      </LazyLoadComponent>
+      </LazyLoadComponent> */}
     </div>
   );
 }

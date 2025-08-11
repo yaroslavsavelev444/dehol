@@ -32,6 +32,52 @@
     border-radius: 0;
 }
 
+/* Контейнер для слайдера */
+.swiper-container {
+  position: relative;
+}
+
+/* Счетчик изображений */
+.swiper-counter {
+  position: absolute;
+  top: 15px;
+  right: 15px;
+  background: rgba(0, 0, 0, 0.6);
+  color: white;
+  padding: 5px 10px;
+  border-radius: 20px;
+  font-size: 14px;
+  font-weight: bold;
+  z-index: 10;
+}
+
+/* Запрет взаимодействия с заблокированными кнопками */
+.swiper-button-disabled {
+  pointer-events: none;
+  opacity: 0.5;
+}
+
+/* Обработка кликов */
+.swiper-button-next,
+.swiper-button-prev {
+  cursor: pointer;
+  z-index: 20;
+}
+
+/* Улучшенные стили для активного слайда */
+.custom-swiper .swiper-slide-active {
+  transform: scale(1);
+  z-index: 2;
+  opacity: 1;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+  cursor: pointer;
+}
+
+/* Остальные слайды */
+.custom-swiper .swiper-slide {
+  cursor: default;
+}
+
 .ti-image img { 
     width: 100%;
     height: auto;
@@ -109,3 +155,5 @@
       gap: 20px;
     }
   }
+
+  
